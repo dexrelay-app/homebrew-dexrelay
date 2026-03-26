@@ -5,7 +5,7 @@ This folder contains the tap-ready Homebrew formula for `dexrelay`.
 Recommended install flow:
 
 ```bash
-brew install dexrelay-app/dexrelay/dexrelay && dexrelay install
+brew tap dexrelay-app/dexrelay && brew install dexrelay && dexrelay install
 ```
 
 What the formula installs:
