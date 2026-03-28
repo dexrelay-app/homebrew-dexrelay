@@ -27,6 +27,8 @@ Operational commands:
 ```bash
 dexrelay status
 dexrelay repair
+dexrelay pair
+dexrelay relay-pair
 dexrelay uninstall
 ```
 

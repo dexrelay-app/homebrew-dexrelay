@@ -2,8 +2,8 @@ class Dexrelay < Formula
   desc "DexRelay installer and CLI for the Codex Relay Mac runtime"
   homepage "https://assets.dexrelay.app/setup-guide.html"
   url "https://assets.dexrelay.app/install.sh"
-  sha256 "15db54ebb134909fa0cc6b4c44b4c2b423e03d82ba83c4534fcf0e04e96be624"
-  version "0.1.7"
+  sha256 "31254703cc223ed469cd9ddebdb333309a96f6ce86ff5518d85877674c547bac"
+  version "0.1.8"
 
   depends_on "jq"
   depends_on "node"
@@ -11,27 +11,37 @@ class Dexrelay < Formula
 
   resource "bridge.js" do
     url "https://assets.dexrelay.app/bridge.js"
-    sha256 "a6d292209ad29f9060bf7ccc4537c62839ece3537999960052b52309b0a4601a"
+    sha256 "eef5620571684477d4834a93517228f4c4227a3c027778e7c556ce1b39eb47e8"
+  end
+
+  resource "relay-server.js" do
+    url "https://assets.dexrelay.app/relay-server.js"
+    sha256 "0d5c28c834f5e1c189a9139c8c9dfea118450cb2af263ed42be8a4156fe474ce"
+  end
+
+  resource "relay-connector.js" do
+    url "https://assets.dexrelay.app/relay-connector.js"
+    sha256 "1d29d5681798bc067a89e2d09c7f8ad25f6fc3dd53348c65e0763bf4fe60d7ec"
   end
 
   resource "helper.py" do
     url "https://assets.dexrelay.app/helper.py"
-    sha256 "b0549f62a897b1bf5723031acbcd72c98c8a43ec6914de25e2cf8bbaf371d909"
+    sha256 "949e4c44c2ddda44615d66f0c3bb1eea371c7d4763aead6d854e0c688e8da9b2"
   end
 
   resource "package.json" do
     url "https://assets.dexrelay.app/package.json"
-    sha256 "435266209d1bf19be7848462bab8250ae433d63c5bc750029ecfa483164d0323"
+    sha256 "2cc1887907457c2bc4bebb8e44f5eab1c69f528b2a07f27971cc727905164bed"
   end
 
   resource "dexrelay" do
     url "https://assets.dexrelay.app/dexrelay"
-    sha256 "da31bb8db6ade7df4704f874c331f14065cecc466977947f327641727767821d"
+    sha256 "29ecafe5abe286f48dffca5ae439dd3e37512f844d1e6a14bd9a71b62cf32b86"
   end
 
   resource "create-mac-project.sh" do
     url "https://assets.dexrelay.app/create-mac-project.sh"
-    sha256 "c56897dfa1454fd6b5cc2e388c61521624281b20c4d3dc00877deb8c856cd85c"
+    sha256 "8de2b32e37a651bf2da4580c9cc1c672048c443ffdf8b450720eeac8b1ec27be"
   end
 
   resource "git-project-automation.sh" do
@@ -41,7 +51,7 @@ class Dexrelay < Formula
 
   resource "governancectl.py" do
     url "https://assets.dexrelay.app/governancectl.py"
-    sha256 "19aef3fe0a9a0f9969051f792355c5c66af539f27702c65d481b33230a525a33"
+    sha256 "11e3973073339149b9005362edc3ddabb4291608ad64ed9b22a2a242609995db"
   end
 
   resource "services.registry.json" do
@@ -55,6 +65,14 @@ class Dexrelay < Formula
 
     resource("bridge.js").stage do
       (libexec/"payload").install "bridge.js"
+    end
+
+    resource("relay-server.js").stage do
+      (libexec/"payload").install "relay-server.js"
+    end
+
+    resource("relay-connector.js").stage do
+      (libexec/"payload").install "relay-connector.js"
     end
 
     resource("helper.py").stage do
