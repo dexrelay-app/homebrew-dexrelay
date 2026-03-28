@@ -3,7 +3,7 @@ class Dexrelay < Formula
   homepage "https://assets.dexrelay.app/setup-guide.html"
   url "https://assets.dexrelay.app/install.sh"
   sha256 "03100979c6c64f6a3d75b87f7826580723dbf5b36afdae85abfc803a35d9be68"
-  version "0.1.9"
+  version "0.1.10"
 
   depends_on "jq"
   depends_on "node"
@@ -26,7 +26,7 @@ class Dexrelay < Formula
 
   resource "helper.py" do
     url "https://assets.dexrelay.app/helper.py"
-    sha256 "949e4c44c2ddda44615d66f0c3bb1eea371c7d4763aead6d854e0c688e8da9b2"
+    sha256 "a70821591a1ccf04eb498ef12eab93005cd361e866b3d94a95e77c3493071e74"
   end
 
   resource "package.json" do
@@ -36,7 +36,7 @@ class Dexrelay < Formula
 
   resource "dexrelay" do
     url "https://assets.dexrelay.app/dexrelay"
-    sha256 "5ccb169f2f2319dae656b97fb005029a8bfa9f6ffc247ac0a78ab47bc39c07dd"
+    sha256 "bcfcf72b0d8954c9d067a56927a6c21747c6a80580cb03d7bc4ec82cf610b6d7"
   end
 
   resource "create-mac-project.sh" do
