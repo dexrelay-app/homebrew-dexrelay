@@ -2,8 +2,8 @@ class Dexrelay < Formula
   desc "DexRelay installer and CLI for the Codex Relay Mac runtime"
   homepage "https://assets.dexrelay.app/setup-guide.html"
   url "https://assets.dexrelay.app/install.sh"
-  sha256 "03100979c6c64f6a3d75b87f7826580723dbf5b36afdae85abfc803a35d9be68"
-  version "0.1.11"
+  sha256 "17f1df9bf3c71238be0afde2d3369b7159cb3bbcc09a1001fa9da1026541afc7"
+  version "0.1.12"
 
   depends_on "jq"
   depends_on "node"
@@ -36,7 +36,7 @@ class Dexrelay < Formula
 
   resource "dexrelay" do
     url "https://assets.dexrelay.app/dexrelay"
-    sha256 "f3c7de7ca27fd3ce68290366f746941727ad2e4be94f9ed9d5e7ef52aeacdca9"
+    sha256 "7a9e781cb727fd0e45af4561644b7819267c712a815e3a09dd9a585c310876db"
   end
 
   resource "create-mac-project.sh" do
