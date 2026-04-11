@@ -2,8 +2,8 @@ class Dexrelay < Formula
   desc "DexRelay installer and CLI for the Codex Relay Mac runtime"
   homepage "https://assets.dexrelay.app/setup-guide.html"
   url "https://assets.dexrelay.app/install.sh"
-  sha256 "1bfed43017f621ce517ac71ad102651cd58bb9366886bfcfb15414fddce170e1"
-  version "0.1.16"
+  sha256 "485c32f39a5a4e018a5e37d02022839061e9edff15d8b710e58fa4740fa8d759"
+  version "0.1.17"
 
   depends_on "jq"
   depends_on "node"
@@ -26,7 +26,7 @@ class Dexrelay < Formula
 
   resource "helper.py" do
     url "https://assets.dexrelay.app/helper.py"
-    sha256 "253c88bc47ee584069c7cc0464f16cc7a7198bf2928fde9b2994d31beaaa5363"
+    sha256 "e429bcc8c55f1ea5f40e5784ef69d152ea6d6dd4a3ffb0bbdbb8f122961ba77d"
   end
 
   resource "package.json" do
@@ -36,7 +36,7 @@ class Dexrelay < Formula
 
   resource "dexrelay" do
     url "https://assets.dexrelay.app/dexrelay"
-    sha256 "e1127ad35d1adae8d99cf3e24e5563cfa63f409200f6106c1d8712469a6d57d9"
+    sha256 "7aae89dd1d03e872f6cab53f48557848ca57d4944f835a93d338527a7e6c39c7"
   end
 
   resource "create-mac-project.sh" do
@@ -51,7 +51,7 @@ class Dexrelay < Formula
 
   resource "governancectl.py" do
     url "https://assets.dexrelay.app/governancectl.py"
-    sha256 "f4cedb14c9f7c2f9ead581639cf57d8a243263483824710bfb41089875599c20"
+    sha256 "cd84234716d7703e7664b586a8a86aa621358c22798ca06d3239bc00b58c3bfe"
   end
 
   resource "services.registry.json" do
