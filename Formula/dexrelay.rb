@@ -2,8 +2,8 @@ class Dexrelay < Formula
   desc "DexRelay installer and CLI for the Codex Relay Mac runtime"
   homepage "https://assets.dexrelay.app/setup-guide.html"
   url "https://assets.dexrelay.app/install.sh"
-  sha256 "6fb121d37dadb5898653cc87820ff1e9867165efda82458920e62677aadf4531"
-  version "0.1.15"
+  sha256 "1bfed43017f621ce517ac71ad102651cd58bb9366886bfcfb15414fddce170e1"
+  version "0.1.16"
 
   depends_on "jq"
   depends_on "node"
@@ -26,7 +26,7 @@ class Dexrelay < Formula
 
   resource "helper.py" do
     url "https://assets.dexrelay.app/helper.py"
-    sha256 "a70821591a1ccf04eb498ef12eab93005cd361e866b3d94a95e77c3493071e74"
+    sha256 "253c88bc47ee584069c7cc0464f16cc7a7198bf2928fde9b2994d31beaaa5363"
   end
 
   resource "package.json" do
@@ -36,7 +36,7 @@ class Dexrelay < Formula
 
   resource "dexrelay" do
     url "https://assets.dexrelay.app/dexrelay"
-    sha256 "deb00d0b745d0d7ba890a18ad0366daf7d5911777f4979f32490b60e6aa7e869"
+    sha256 "e1127ad35d1adae8d99cf3e24e5563cfa63f409200f6106c1d8712469a6d57d9"
   end
 
   resource "create-mac-project.sh" do
@@ -51,12 +51,37 @@ class Dexrelay < Formula
 
   resource "governancectl.py" do
     url "https://assets.dexrelay.app/governancectl.py"
-    sha256 "11e3973073339149b9005362edc3ddabb4291608ad64ed9b22a2a242609995db"
+    sha256 "f4cedb14c9f7c2f9ead581639cf57d8a243263483824710bfb41089875599c20"
   end
 
   resource "services.registry.json" do
     url "https://assets.dexrelay.app/services.registry.json"
     sha256 "1b459dbe5ae219cdc278eb1d0c086236ba28855edeb7223f20e57429f7dd026d"
+  end
+
+  resource "servicectl.py" do
+    url "https://assets.dexrelay.app/servicectl.py"
+    sha256 "e7fc0c6f13626a32a5a7bf13a1c528f98ac335d9aafc6efff1c0ffd397279929"
+  end
+
+  resource "codex-health-daemon.py" do
+    url "https://assets.dexrelay.app/codex-health-daemon.py"
+    sha256 "b1909ca2378c79792ce2dc94663d39d36885165f0c2865785665a4843ad03795"
+  end
+
+  resource "health-ui-index.html" do
+    url "https://assets.dexrelay.app/health-ui-index.html"
+    sha256 "ff365713fd9a8be56ade162a86e9a989138e46df566433154afe5f2d46f899a3"
+  end
+
+  resource "health-ui-app.js" do
+    url "https://assets.dexrelay.app/health-ui-app.js"
+    sha256 "b494bc44b5fd60ac42201e64c16b5adad34b8620bce84a93a0077b03b9d745c3"
+  end
+
+  resource "health-ui-styles.css" do
+    url "https://assets.dexrelay.app/health-ui-styles.css"
+    sha256 "ef789b18a3c401aab70b4830d70fedced2df57beb52e640c3cffd138d95e7b58"
   end
 
   def install
@@ -110,6 +135,26 @@ class Dexrelay < Formula
 
     resource("services.registry.json").stage do
       (libexec/"payload").install "services.registry.json"
+    end
+
+    resource("servicectl.py").stage do
+      (libexec/"payload").install "servicectl.py"
+    end
+
+    resource("codex-health-daemon.py").stage do
+      (libexec/"payload").install "codex-health-daemon.py"
+    end
+
+    resource("health-ui-index.html").stage do
+      (libexec/"payload").install "health-ui-index.html"
+    end
+
+    resource("health-ui-app.js").stage do
+      (libexec/"payload").install "health-ui-app.js"
+    end
+
+    resource("health-ui-styles.css").stage do
+      (libexec/"payload").install "health-ui-styles.css"
     end
 
     chmod 0755, bin/"dexrelay"
