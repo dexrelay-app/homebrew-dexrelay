@@ -2,8 +2,8 @@ class Dexrelay < Formula
   desc "DexRelay installer and CLI for the Codex Relay Mac runtime"
   homepage "https://assets.dexrelay.app/setup-guide.html"
   url "https://assets.dexrelay.app/install.sh"
-  sha256 "485c32f39a5a4e018a5e37d02022839061e9edff15d8b710e58fa4740fa8d759"
-  version "0.1.18"
+  sha256 "92fc649c1222f9ff0de3f069de7d11b90de08febb72ee41c2e746aba12f7b7cd"
+  version "0.1.19"
 
   depends_on "jq"
   depends_on "node"
@@ -36,7 +36,7 @@ class Dexrelay < Formula
 
   resource "dexrelay" do
     url "https://assets.dexrelay.app/dexrelay"
-    sha256 "bd543f011d5a782643f21dc9f74320176fb42b9ae3f7dcb10206e51c60969499"
+    sha256 "e34efe62069554c1864a7e0602f6a4c8fa6bafe43466fcc39369ab1c2d5d5ff6"
   end
 
   resource "create-mac-project.sh" do
@@ -51,7 +51,7 @@ class Dexrelay < Formula
 
   resource "governancectl.py" do
     url "https://assets.dexrelay.app/governancectl.py"
-    sha256 "cd84234716d7703e7664b586a8a86aa621358c22798ca06d3239bc00b58c3bfe"
+    sha256 "fa00e711636cbd269615cc566dba21a7e1299f571c69e4d17f4d003588b437aa"
   end
 
   resource "services.registry.json" do
@@ -62,6 +62,16 @@ class Dexrelay < Formula
   resource "servicectl.py" do
     url "https://assets.dexrelay.app/servicectl.py"
     sha256 "e7fc0c6f13626a32a5a7bf13a1c528f98ac335d9aafc6efff1c0ffd397279929"
+  end
+
+  resource "rebuild-workspace-services.py" do
+    url "https://assets.dexrelay.app/rebuild-workspace-services.py"
+    sha256 "b76e06d81beaf2c7b625f6ef3c24bdaf8fcbecc9f654c6fdceb0a06c5b1b20c6"
+  end
+
+  resource "migrate-dexrelay-state.py" do
+    url "https://assets.dexrelay.app/migrate-dexrelay-state.py"
+    sha256 "45d1c7eb86e44c515e403bc6dba74347ad444d1a68a5df5b7804cd7a431e5521"
   end
 
   resource "codex-health-daemon.py" do
@@ -139,6 +149,14 @@ class Dexrelay < Formula
 
     resource("servicectl.py").stage do
       (libexec/"payload").install "servicectl.py"
+    end
+
+    resource("rebuild-workspace-services.py").stage do
+      (libexec/"payload").install "rebuild-workspace-services.py"
+    end
+
+    resource("migrate-dexrelay-state.py").stage do
+      (libexec/"payload").install "migrate-dexrelay-state.py"
     end
 
     resource("codex-health-daemon.py").stage do
