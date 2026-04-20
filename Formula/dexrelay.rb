@@ -2,8 +2,8 @@ class Dexrelay < Formula
   desc "DexRelay installer and CLI for the Codex Relay Mac runtime"
   homepage "https://assets.dexrelay.app/setup-guide.html"
   url "https://assets.dexrelay.app/install.sh"
-  sha256 "92fc649c1222f9ff0de3f069de7d11b90de08febb72ee41c2e746aba12f7b7cd"
-  version "0.1.19"
+  sha256 "478339250cae689917934676a31f439fcb932b2e61559c49c307ea815464a66b"
+  version "0.1.20"
 
   depends_on "jq"
   depends_on "node"
@@ -36,7 +36,7 @@ class Dexrelay < Formula
 
   resource "dexrelay" do
     url "https://assets.dexrelay.app/dexrelay"
-    sha256 "e34efe62069554c1864a7e0602f6a4c8fa6bafe43466fcc39369ab1c2d5d5ff6"
+    sha256 "b95b85c5b81ae85cddc9facdb7ad5edc20c8a5c1787aefd30e001e4985cc939c"
   end
 
   resource "create-mac-project.sh" do
@@ -71,7 +71,37 @@ class Dexrelay < Formula
 
   resource "migrate-dexrelay-state.py" do
     url "https://assets.dexrelay.app/migrate-dexrelay-state.py"
-    sha256 "45d1c7eb86e44c515e403bc6dba74347ad444d1a68a5df5b7804cd7a431e5521"
+    sha256 "c963f5e2a9756f466d7d71805764aefdb7a646f2fd60bbe522237f6d1e6cc5ea"
+  end
+
+  resource "xcode-devdir.sh" do
+    url "https://assets.dexrelay.app/xcode-devdir.sh"
+    sha256 "a0a6c2c4c93352db76235e2425252351d08dab9b9455881ee1067eef90129f21"
+  end
+
+  resource "run-ios-device.sh" do
+    url "https://assets.dexrelay.app/run-ios-device.sh"
+    sha256 "72161356f18bd188df8524b33e1b3dce62a0224b54028fd4881e891e43eae1a6"
+  end
+
+  resource "run-ios-on-phone.sh" do
+    url "https://assets.dexrelay.app/run-ios-on-phone.sh"
+    sha256 "7201f46bec8b383ac5452fd3c08ed1103592691385678b80503432cf1236145e"
+  end
+
+  resource "publish-ios-adhoc-ota.sh" do
+    url "https://assets.dexrelay.app/publish-ios-adhoc-ota.sh"
+    sha256 "3e01206d5220e3a67ab6fe0bfe4b2c5a13020026932c9bc65ca83e281bc512bd"
+  end
+
+  resource "prepare-ios-testflight.py" do
+    url "https://assets.dexrelay.app/prepare-ios-testflight.py"
+    sha256 "4e75f4cdbf0e9a054c74d9697ecfae8f2006e9d5148d12e97e2d91888451140a"
+  end
+
+  resource "ios_testflight_common.py" do
+    url "https://assets.dexrelay.app/ios_testflight_common.py"
+    sha256 "5d1344643c50a79586a2282c3e9b7e7ca580ee0923f72b8679423ab1ddba89d4"
   end
 
   resource "codex-health-daemon.py" do
@@ -157,6 +187,30 @@ class Dexrelay < Formula
 
     resource("migrate-dexrelay-state.py").stage do
       (libexec/"payload").install "migrate-dexrelay-state.py"
+    end
+
+    resource("xcode-devdir.sh").stage do
+      (libexec/"payload").install "xcode-devdir.sh"
+    end
+
+    resource("run-ios-device.sh").stage do
+      (libexec/"payload").install "run-ios-device.sh"
+    end
+
+    resource("run-ios-on-phone.sh").stage do
+      (libexec/"payload").install "run-ios-on-phone.sh"
+    end
+
+    resource("publish-ios-adhoc-ota.sh").stage do
+      (libexec/"payload").install "publish-ios-adhoc-ota.sh"
+    end
+
+    resource("prepare-ios-testflight.py").stage do
+      (libexec/"payload").install "prepare-ios-testflight.py"
+    end
+
+    resource("ios_testflight_common.py").stage do
+      (libexec/"payload").install "ios_testflight_common.py"
     end
 
     resource("codex-health-daemon.py").stage do
