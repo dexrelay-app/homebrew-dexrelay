@@ -5,7 +5,7 @@ This folder contains the tap-ready Homebrew formula for `dexrelay`.
 Recommended install flow:
 
 ```bash
-brew tap dexrelay-app/dexrelay && brew install dexrelay && dexrelay install
+brew install dexrelay-app/dexrelay/dexrelay && dexrelay install
 ```
 
 What the formula installs:
@@ -18,7 +18,6 @@ What `dexrelay install` does:
 
 - reuses the same DexRelay installer logic as the Cloudflare bootstrap script
 - installs the isolated runtime in `~/Library/Application Support/DexRelay/runtime`
-- preserves compatibility with older installs under `~/src/CodexRelayBackendBootstrap`
 - creates a user-facing admin workspace in `~/src/DexRelay Admin`
 - installs the bootstrap relay on port `4615`
 - installs the setup helper on port `4616`
