@@ -35,7 +35,7 @@ dexrelay uninstall
 
 - `status` reports launch agents, ports, Tailscale host, and helper health
 - `repair` restarts the bridge/helper and falls back to a reinstall if needed
-- `uninstall` removes the runtime, launch agents, logs, and Homebrew CLI
+- `uninstall` removes the runtime, launch agents, logs, and installed DexRelay CLI
 
 Publishing notes:
 
