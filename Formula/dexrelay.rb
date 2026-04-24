@@ -3,7 +3,7 @@ class Dexrelay < Formula
   homepage "https://assets.dexrelay.app/setup-guide.html"
   url "https://assets.dexrelay.app/install.sh"
   sha256 "8a511abff116006820f554c21197c9949518afd143864ffcf6b8d44f074a7352"
-  version "0.1.31"
+  version "0.1.32"
 
   depends_on "jq"
   depends_on "node"
@@ -31,12 +31,12 @@ class Dexrelay < Formula
 
   resource "package.json" do
     url "https://assets.dexrelay.app/package.json"
-    sha256 "e32c8d84aaf2515282f3b1446a30a6ca015e6a39219634527988a8692710e5ca"
+    sha256 "d8de091662986fff75017eaa65ceb8ff34a30c727f86555660307e59f1b15c2e"
   end
 
   resource "dexrelay" do
     url "https://assets.dexrelay.app/dexrelay"
-    sha256 "8782bfcd726ec52221aee04cca32c125de711562a6e8dcaf3da970a198ab1fc1"
+    sha256 "c8599eb074d9d048fb55695db5543178776cd7fc562eee2b9bd31b5189a34be2"
   end
 
   resource "create-mac-project.sh" do
@@ -51,7 +51,7 @@ class Dexrelay < Formula
 
   resource "governancectl.py" do
     url "https://assets.dexrelay.app/governancectl.py"
-    sha256 "6ff68fd36fff0e4baf10447622447321f7d41490b57a683f887bf80b2b59a1fa"
+    sha256 "89545777b87109a160de2f2ac8ba2518a8f0f576ded70e6a5b63412f490ba507"
   end
 
   resource "services.registry.json" do
@@ -66,7 +66,7 @@ class Dexrelay < Formula
 
   resource "rebuild-workspace-services.py" do
     url "https://assets.dexrelay.app/rebuild-workspace-services.py"
-    sha256 "58946bf099a0eb3267ce250bf641c91b3fd93d9a9ad17212ac487b206afe919e"
+    sha256 "b83875b68b180e5217ee0ffe31a71111b837b4e2d7a7fe5e00d02988b07862c1"
   end
 
   resource "migrate-dexrelay-state.py" do
